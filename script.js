@@ -94,9 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
         startTimer();
     }
 
-    if (totalSlides > 0) {
-        startTimer();
-    } else {
-        console.error("No slides found to initialize timer");
-    }
+} else {
+    console.error("No slides found to initialize timer");
+}
+
+    // Mobile Menu Logic
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
 });

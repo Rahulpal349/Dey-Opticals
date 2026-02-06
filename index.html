@@ -6,7 +6,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Dey Optical | Visionary Elegance</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-    <script src="script.js"></script>
+    <script src="images/script.js"></script>
 
 
     <link href="https://fonts.googleapis.com/css2?family=Rozha+One&family=Poppins:wght@300;400;500;600;700&display=swap"
@@ -27,7 +27,7 @@
                 <div class="flex items-center justify-between h-20">
                     <!-- Logo -->
                     <div class="flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                        <img src="logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
+                        <img src="images/logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
                         <span
                             class="font-serif text-xl md:text-2xl font-bold tracking-tight text-text-main dark:text-white">Dey
                             Opticals</span>
@@ -58,11 +58,25 @@
                             </button>
                         </div>
                         <!-- Mobile Menu Button -->
-                        <button
+                        <button id="mobile-menu-btn"
                             class="lg:hidden flex items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] text-[#181611] dark:text-white transition-colors">
                             <span class="material-symbols-outlined">menu</span>
                         </button>
                     </div>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden lg:hidden bg-background-light dark:bg-background-dark border-t border-[#e5e0d6] dark:border-[#3a3422] absolute top-20 left-0 w-full shadow-lg z-40">
+                <div class="flex flex-col p-4 gap-4">
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="products.html">Collections</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="products.html">Brands</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#virtual-try-on">Try-On</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#about">About</a>
                 </div>
             </div>
         </nav>
@@ -456,7 +470,7 @@
                 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
                     <!-- Customer Photo 1 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer1.jpg" alt="Happy Customer 1"
+                        <img src="images/customer1.jpg" alt="Happy Customer 1"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -465,7 +479,7 @@
                     </div>
                     <!-- Customer Photo 2 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer2.jpg" alt="Happy Customer 2"
+                        <img src="images/customer2.jpg" alt="Happy Customer 2"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -474,7 +488,7 @@
                     </div>
                     <!-- Customer Photo 3 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer3.jpg" alt="Happy Customer 3"
+                        <img src="images/customer3.jpg" alt="Happy Customer 3"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -483,7 +497,7 @@
                     </div>
                     <!-- Customer Photo 4 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer4.jpg" alt="Happy Customer 4"
+                        <img src="images/customer4.jpg" alt="Happy Customer 4"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -492,7 +506,7 @@
                     </div>
                     <!-- Customer Photo 5 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer5.jpg" alt="Happy Customer 5"
+                        <img src="images/customer5.jpg" alt="Happy Customer 5"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -501,7 +515,7 @@
                     </div>
                     <!-- Customer Photo 6 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer6.jpg" alt="Happy Customer 6"
+                        <img src="images/customer6.jpg" alt="Happy Customer 6"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -510,7 +524,7 @@
                     </div>
                     <!-- Customer Photo 7 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer7.jpg" alt="Happy Customer 7"
+                        <img src="images/customer7.jpg" alt="Happy Customer 7"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -519,7 +533,7 @@
                     </div>
                     <!-- Customer Photo 8 -->
                     <div class="aspect-[3/4] rounded-xl overflow-hidden group relative">
-                        <img src="customer8.jpg" alt="Happy Customer 8"
+                        <img src="images/customer8.jpg" alt="Happy Customer 8"
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
                         <div
                             class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
@@ -536,7 +550,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     <div class="flex flex-col gap-2">
                         <div class="flex items-center gap-2">
-                            <img src="logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
+                            <img src="images/logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
                             <span class="font-serif text-xl font-bold text-white">Dey Opticals</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed">Caring for your eyes with quality and trust</p>

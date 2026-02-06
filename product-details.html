@@ -54,7 +54,7 @@
         <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
             <div class="flex items-center justify-between h-20">
                 <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
-                    <img src="logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
+                    <img src="images/logo.png" alt="Dey Optical Logo" class="h-8 w-auto rounded-full">
                     <span
                         class="font-serif text-xl md:text-2xl font-bold tracking-tight text-text-main dark:text-white">Dey
                         Opticals</span>
@@ -74,233 +74,267 @@
                     <button class="h-10 w-10 hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] rounded-lg">
                         <span class="material-symbols-outlined">shopping_bag</span>
                     </button>
-                </div>
-            </div>
-        </div>
-    </nav>
-
-    <main class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
-        <!-- Breadcrumbs -->
-        <nav class="flex items-center gap-2 text-sm font-medium text-text-muted mb-8">
-            <a href="index.html" class="hover:text-primary">Home</a>
-            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-            <a href="products.html" class="hover:text-primary">Men</a>
-            <span class="material-symbols-outlined text-[16px]">chevron_right</span>
-            <span class="text-text-main dark:text-white">Aviator Elite</span>
-        </nav>
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-            <!-- Left Column: Images -->
-            <div class="flex flex-col gap-4">
-                <div class="relative aspect-square bg-[#f5f5f5] dark:bg-[#2a2415] rounded-xl overflow-hidden group">
-                    <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeGu0EvAiYAQoJHaVFIvlZzxySvbX6nMq4e09RYuS0NY8uj5mO__oC55l7sIQiywIMjHKmGYjpuA47aO-mmA_J3JkBwc8Pa-MikyvFzv7CZw3bSozglvhgB1pYwYmkYgMR4MITrE-W5DZVMBUOc9ZLQ9tcuVuEZVJT4STd-egryzPY82kRs1YSTUqMaV-B4e8fx5yhyGRz2AbY3y8C2cfNBkmhrgWegwYBETF4i36oIY603i5Z5ZuNWKTpEjZBstPYENtmy32PDyQ"
-                        alt="The Aviator Elite" class="w-full h-full object-contain p-8">
-
-                    <button
-                        class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 dark:bg-black/70 backdrop-blur px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-white transition-colors shadow-lg">
-                        <span class="material-symbols-outlined text-[20px]">360</span>
-                        360° VIEW
+                    <button id="mobile-menu-btn"
+                        class="lg:hidden flex items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] text-[#181611] dark:text-white transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
                     </button>
                 </div>
-                <div class="grid grid-cols-4 gap-4">
-                    <div
-                        class="aspect-square rounded-lg border-2 border-primary cursor-pointer overflow-hidden p-2 bg-[#f5f5f5] dark:bg-[#2a2415]">
-                        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeGu0EvAiYAQoJHaVFIvlZzxySvbX6nMq4e09RYuS0NY8uj5mO__oC55l7sIQiywIMjHKmGYjpuA47aO-mmA_J3JkBwc8Pa-MikyvFzv7CZw3bSozglvhgB1pYwYmkYgMR4MITrE-W5DZVMBUOc9ZLQ9tcuVuEZVJT4STd-egryzPY82kRs1YSTUqMaV-B4e8fx5yhyGRz2AbY3y8C2cfNBkmhrgWegwYBETF4i36oIY603i5Z5ZuNWKTpEjZBstPYENtmy32PDyQ"
-                            class="w-full h-full object-contain">
-                    </div>
-                    <div
-                        class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-[#f5f5f5] dark:bg-[#2a2415]">
-                        <!-- Placeholder for side view -->
-                        <div class="w-full h-full flex items-center justify-center text-text-muted">
-                            <span class="material-symbols-outlined">image</span>
-                        </div>
-                    </div>
-                    <div
-                        class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-[#f5f5f5] dark:bg-[#2a2415]">
-                        <!-- Placeholder for detailed view -->
-                        <div class="w-full h-full flex items-center justify-center text-text-muted">
-                            <span class="material-symbols-outlined">image</span>
-                        </div>
-                    </div>
-                    <div
-                        class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-black/5 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-3xl">play_circle</span>
-                    </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu"
+                class="hidden lg:hidden bg-background-light dark:bg-background-dark border-t border-[#e5e0d6] dark:border-[#3a3422] absolute top-20 left-0 w-full shadow-lg z-40">
+                <div class="flex flex-col p-4 gap-4">
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="products.html">Collections</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="products.html">Brands</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#virtual-try-on">Try-On</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#about">About</a>
                 </div>
             </div>
 
-            <!-- Right Column: Details -->
-            <div class="flex flex-col gap-8">
-                <div>
-                    <div class="flex items-center gap-2 mb-2">
-                        <h1 class="text-4xl font-serif font-bold text-text-main dark:text-white">The Aviator Elite</h1>
-                        <span class="bg-gray-100 dark:bg-gray-800 text-xs font-bold px-2 py-1 rounded">NEW</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-primary text-sm">
-                        <span class="material-symbols-outlined text-[18px] fill-current">star</span>
-                        <span class="font-bold text-text-main dark:text-white">4.9</span>
-                        <span class="text-text-muted underline decoration-dotted underline-offset-4 cursor-pointer">(128
-                            reviews)</span>
-                    </div>
-                </div>
+            <main class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
+                <!-- Breadcrumbs -->
+                <nav class="flex items-center gap-2 text-sm font-medium text-text-muted mb-8">
+                    <a href="index.html" class="hover:text-primary">Home</a>
+                    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                    <a href="products.html" class="hover:text-primary">Men</a>
+                    <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                    <span class="text-text-main dark:text-white">Aviator Elite</span>
+                </nav>
 
-                <p class="text-text-muted leading-relaxed text-lg">
-                    Handcrafted from premium Italian acetate and lightweight titanium, the Aviator Elite redefines a
-                    classic silhouette. Featuring polarized lenses with 100% UV protection and a comfortable, adjustable
-                    fit.
-                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+                    <!-- Left Column: Images -->
+                    <div class="flex flex-col gap-4">
+                        <div
+                            class="relative aspect-square bg-[#f5f5f5] dark:bg-[#2a2415] rounded-xl overflow-hidden group">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeGu0EvAiYAQoJHaVFIvlZzxySvbX6nMq4e09RYuS0NY8uj5mO__oC55l7sIQiywIMjHKmGYjpuA47aO-mmA_J3JkBwc8Pa-MikyvFzv7CZw3bSozglvhgB1pYwYmkYgMR4MITrE-W5DZVMBUOc9ZLQ9tcuVuEZVJT4STd-egryzPY82kRs1YSTUqMaV-B4e8fx5yhyGRz2AbY3y8C2cfNBkmhrgWegwYBETF4i36oIY603i5Z5ZuNWKTpEjZBstPYENtmy32PDyQ"
+                                alt="The Aviator Elite" class="w-full h-full object-contain p-8">
 
-                <!-- Configuration -->
-                <div class="space-y-6 border-t border-b border-gray-100 dark:border-gray-800 py-6">
-                    <!-- Finish -->
-                    <div class="space-y-3">
-                        <span class="text-sm font-bold uppercase tracking-wider text-text-muted">Finish: <span
-                                class="text-text-main dark:text-white">Midnight Black</span></span>
-                        <div class="flex gap-3">
                             <button
-                                class="w-10 h-10 rounded-full bg-[#1a1a1a] ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-[#221d10]"></button>
-                            <button
-                                class="w-10 h-10 rounded-full bg-[#D4AF37] hover:ring-2 hover:ring-gray-300 ring-offset-2 ring-offset-white dark:ring-offset-[#221d10] transition-all"></button>
-                            <button
-                                class="w-10 h-10 rounded-full bg-[#C0C0C0] hover:ring-2 hover:ring-gray-300 ring-offset-2 ring-offset-white dark:ring-offset-[#221d10] transition-all"></button>
-                        </div>
-                    </div>
-
-                    <!-- Size -->
-                    <div class="space-y-3">
-                        <div class="flex justify-between items-center">
-                            <span class="text-sm font-bold uppercase tracking-wider text-text-muted">Size: <span
-                                    class="text-text-main dark:text-white">Standard</span></span>
-                            <button class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
-                                <span class="material-symbols-outlined text-[16px]">straighten</span> Check Fit Guide
+                                class="absolute bottom-6 left-1/2 -translate-x-1/2 bg-white/90 dark:bg-black/70 backdrop-blur px-4 py-2 rounded-full text-sm font-bold flex items-center gap-2 hover:bg-white transition-colors shadow-lg">
+                                <span class="material-symbols-outlined text-[20px]">360</span>
+                                360° VIEW
                             </button>
                         </div>
-                        <div class="grid grid-cols-2 gap-3">
+                        <div class="grid grid-cols-4 gap-4">
+                            <div
+                                class="aspect-square rounded-lg border-2 border-primary cursor-pointer overflow-hidden p-2 bg-[#f5f5f5] dark:bg-[#2a2415]">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeGu0EvAiYAQoJHaVFIvlZzxySvbX6nMq4e09RYuS0NY8uj5mO__oC55l7sIQiywIMjHKmGYjpuA47aO-mmA_J3JkBwc8Pa-MikyvFzv7CZw3bSozglvhgB1pYwYmkYgMR4MITrE-W5DZVMBUOc9ZLQ9tcuVuEZVJT4STd-egryzPY82kRs1YSTUqMaV-B4e8fx5yhyGRz2AbY3y8C2cfNBkmhrgWegwYBETF4i36oIY603i5Z5ZuNWKTpEjZBstPYENtmy32PDyQ"
+                                    class="w-full h-full object-contain">
+                            </div>
+                            <div
+                                class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-[#f5f5f5] dark:bg-[#2a2415]">
+                                <!-- Placeholder for side view -->
+                                <div class="w-full h-full flex items-center justify-center text-text-muted">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                            </div>
+                            <div
+                                class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-[#f5f5f5] dark:bg-[#2a2415]">
+                                <!-- Placeholder for detailed view -->
+                                <div class="w-full h-full flex items-center justify-center text-text-muted">
+                                    <span class="material-symbols-outlined">image</span>
+                                </div>
+                            </div>
+                            <div
+                                class="aspect-square rounded-lg border-2 border-transparent hover:border-gray-300 cursor-pointer overflow-hidden bg-black/5 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-3xl">play_circle</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column: Details -->
+                    <div class="flex flex-col gap-8">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <h1 class="text-4xl font-serif font-bold text-text-main dark:text-white">The Aviator
+                                    Elite</h1>
+                                <span
+                                    class="bg-gray-100 dark:bg-gray-800 text-xs font-bold px-2 py-1 rounded">NEW</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-primary text-sm">
+                                <span class="material-symbols-outlined text-[18px] fill-current">star</span>
+                                <span class="font-bold text-text-main dark:text-white">4.9</span>
+                                <span
+                                    class="text-text-muted underline decoration-dotted underline-offset-4 cursor-pointer">(128
+                                    reviews)</span>
+                            </div>
+                        </div>
+
+                        <p class="text-text-muted leading-relaxed text-lg">
+                            Handcrafted from premium Italian acetate and lightweight titanium, the Aviator Elite
+                            redefines a
+                            classic silhouette. Featuring polarized lenses with 100% UV protection and a comfortable,
+                            adjustable
+                            fit.
+                        </p>
+
+                        <!-- Configuration -->
+                        <div class="space-y-6 border-t border-b border-gray-100 dark:border-gray-800 py-6">
+                            <!-- Finish -->
+                            <div class="space-y-3">
+                                <span class="text-sm font-bold uppercase tracking-wider text-text-muted">Finish: <span
+                                        class="text-text-main dark:text-white">Midnight Black</span></span>
+                                <div class="flex gap-3">
+                                    <button
+                                        class="w-10 h-10 rounded-full bg-[#1a1a1a] ring-2 ring-primary ring-offset-2 ring-offset-white dark:ring-offset-[#221d10]"></button>
+                                    <button
+                                        class="w-10 h-10 rounded-full bg-[#D4AF37] hover:ring-2 hover:ring-gray-300 ring-offset-2 ring-offset-white dark:ring-offset-[#221d10] transition-all"></button>
+                                    <button
+                                        class="w-10 h-10 rounded-full bg-[#C0C0C0] hover:ring-2 hover:ring-gray-300 ring-offset-2 ring-offset-white dark:ring-offset-[#221d10] transition-all"></button>
+                                </div>
+                            </div>
+
+                            <!-- Size -->
+                            <div class="space-y-3">
+                                <div class="flex justify-between items-center">
+                                    <span class="text-sm font-bold uppercase tracking-wider text-text-muted">Size: <span
+                                            class="text-text-main dark:text-white">Standard</span></span>
+                                    <button
+                                        class="text-primary text-xs font-bold flex items-center gap-1 hover:underline">
+                                        <span class="material-symbols-outlined text-[16px]">straighten</span> Check Fit
+                                        Guide
+                                    </button>
+                                </div>
+                                <div class="grid grid-cols-2 gap-3">
+                                    <button
+                                        class="border border-primary bg-primary/5 text-primary font-bold py-3 rounded-lg">Standard</button>
+                                    <button
+                                        class="border border-gray-200 dark:border-gray-700 hover:border-gray-400 text-text-muted py-3 rounded-lg">Large</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="space-y-4">
                             <button
-                                class="border border-primary bg-primary/5 text-primary font-bold py-3 rounded-lg">Standard</button>
+                                class="w-full border-2 border-text-main dark:border-white text-text-main dark:text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                                <span class="material-symbols-outlined">videocam</span> Virtual Try-On
+                            </button>
                             <button
-                                class="border border-gray-200 dark:border-gray-700 hover:border-gray-400 text-text-muted py-3 rounded-lg">Large</button>
+                                class="w-full bg-primary hover:bg-[#d4a826] text-[#181611] font-bold text-lg py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
+                                Add to Cart
+                            </button>
+                            <div class="flex items-center justify-center gap-2 text-xs text-text-muted">
+                                <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                                Free worldwide shipping & returns
+                            </div>
+                        </div>
+
+                        <!-- Accordions -->
+                        <div class="space-y-2">
+                            <details class="group border-b border-gray-100 dark:border-gray-800 pb-2">
+                                <summary
+                                    class="flex justify-between items-center font-bold cursor-pointer py-3 list-none">
+                                    Technical Specifications
+                                    <span
+                                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="text-sm text-text-muted pb-4 space-y-2">
+                                    <div
+                                        class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+                                        <span>Frame Width</span><span>140mm</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+                                        <span>Lens Width</span><span>52mm</span>
+                                    </div>
+                                    <div
+                                        class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
+                                        <span>Bridge</span><span>20mm</span>
+                                    </div>
+                                    <div class="flex justify-between py-1"><span>Temple Length</span><span>145mm</span>
+                                    </div>
+                                </div>
+                            </details>
+                            <details class="group border-b border-gray-100 dark:border-gray-800 pb-2">
+                                <summary
+                                    class="flex justify-between items-center font-bold cursor-pointer py-3 list-none">
+                                    Shipping & Returns
+                                    <span
+                                        class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
+                                </summary>
+                                <div class="text-sm text-text-muted pb-4">
+                                    Free standard shipping on all orders. Returns are accepted within 30 days of
+                                    purchase.
+                                </div>
+                            </details>
                         </div>
                     </div>
                 </div>
 
-                <!-- Actions -->
-                <div class="space-y-4">
-                    <button
-                        class="w-full border-2 border-text-main dark:border-white text-text-main dark:text-white font-bold py-4 rounded-lg flex items-center justify-center gap-2 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        <span class="material-symbols-outlined">videocam</span> Virtual Try-On
-                    </button>
-                    <button
-                        class="w-full bg-primary hover:bg-[#d4a826] text-[#181611] font-bold text-lg py-4 rounded-lg shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-0.5">
-                        Add to Cart
-                    </button>
-                    <div class="flex items-center justify-center gap-2 text-xs text-text-muted">
-                        <span class="material-symbols-outlined text-[16px]">local_shipping</span>
-                        Free worldwide shipping & returns
-                    </div>
-                </div>
-
-                <!-- Accordions -->
-                <div class="space-y-2">
-                    <details class="group border-b border-gray-100 dark:border-gray-800 pb-2">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer py-3 list-none">
-                            Technical Specifications
-                            <span
-                                class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                        </summary>
-                        <div class="text-sm text-text-muted pb-4 space-y-2">
-                            <div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
-                                <span>Frame Width</span><span>140mm</span>
-                            </div>
-                            <div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
-                                <span>Lens Width</span><span>52mm</span>
-                            </div>
-                            <div class="flex justify-between border-b border-gray-100 dark:border-gray-800 py-1">
-                                <span>Bridge</span><span>20mm</span>
-                            </div>
-                            <div class="flex justify-between py-1"><span>Temple Length</span><span>145mm</span></div>
+                <!-- Linked/Related Products -->
+                <div class="mt-20">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-2xl font-serif font-bold">Styled With</h2>
+                        <div class="flex gap-2">
+                            <button
+                                class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800"><span
+                                    class="material-symbols-outlined">arrow_back</span></button>
+                            <button
+                                class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800"><span
+                                    class="material-symbols-outlined">arrow_forward</span></button>
                         </div>
-                    </details>
-                    <details class="group border-b border-gray-100 dark:border-gray-800 pb-2">
-                        <summary class="flex justify-between items-center font-bold cursor-pointer py-3 list-none">
-                            Shipping & Returns
-                            <span
-                                class="material-symbols-outlined transition-transform group-open:rotate-180">expand_more</span>
-                        </summary>
-                        <div class="text-sm text-text-muted pb-4">
-                            Free standard shipping on all orders. Returns are accepted within 30 days of purchase.
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <!-- Related Item 1 -->
+                        <div class="group cursor-pointer">
+                            <div
+                                class="aspect-square bg-white dark:bg-[#1a1a1a] rounded-lg mb-3 p-4 flex items-center justify-center relative">
+                                <span
+                                    class="absolute top-2 left-2 bg-black text-white text-[10px] font-bold px-1.5 py-0.5 rounded">NEW</span>
+                                <!-- Placeholder Icon for "Artisan Leather Case" -->
+                                <span class="material-symbols-outlined text-4xl text-text-muted">backpack</span>
+                            </div>
+                            <h3 class="font-bold text-sm">Artisan Leather Case</h3>
+                            <!-- Price Removed <p class="text-text-muted text-sm">$85.00</p> -->
                         </div>
-                    </details>
-                </div>
-            </div>
-        </div>
-
-        <!-- Linked/Related Products -->
-        <div class="mt-20">
-            <div class="flex items-center justify-between mb-8">
-                <h2 class="text-2xl font-serif font-bold">Styled With</h2>
-                <div class="flex gap-2">
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800"><span
-                            class="material-symbols-outlined">arrow_back</span></button>
-                    <button
-                        class="w-10 h-10 rounded-full border border-gray-200 dark:border-gray-700 flex items-center justify-center hover:bg-gray-100 dark:hover:bg-gray-800"><span
-                            class="material-symbols-outlined">arrow_forward</span></button>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Related Item 1 -->
-                <div class="group cursor-pointer">
-                    <div
-                        class="aspect-square bg-white dark:bg-[#1a1a1a] rounded-lg mb-3 p-4 flex items-center justify-center relative">
-                        <span
-                            class="absolute top-2 left-2 bg-black text-white text-[10px] font-bold px-1.5 py-0.5 rounded">NEW</span>
-                        <!-- Placeholder Icon for "Artisan Leather Case" -->
-                        <span class="material-symbols-outlined text-4xl text-text-muted">backpack</span>
+                        <!-- Related Item 2 -->
+                        <div class="group cursor-pointer">
+                            <div
+                                class="aspect-square bg-[#cfe8e6] rounded-lg mb-3 p-4 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-[#162e26]">sanitizer</span>
+                            </div>
+                            <h3 class="font-bold text-sm">Premium Care Kit</h3>
+                        </div>
+                        <!-- Related Item 3 -->
+                        <div class="group cursor-pointer">
+                            <div
+                                class="aspect-square bg-[#f5f5f5] rounded-lg mb-3 p-4 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-text-muted">link</span>
+                            </div>
+                            <h3 class="font-bold text-sm">Gold Link Chain</h3>
+                        </div>
+                        <!-- Related Item 4 -->
+                        <div class="group cursor-pointer">
+                            <div
+                                class="aspect-square bg-white dark:bg-[#1a1a1a] rounded-lg mb-3 p-4 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-4xl text-text-muted">local_florist</span>
+                            </div>
+                            <h3 class="font-bold text-sm">The Scholar</h3>
+                        </div>
                     </div>
-                    <h3 class="font-bold text-sm">Artisan Leather Case</h3>
-                    <!-- Price Removed <p class="text-text-muted text-sm">$85.00</p> -->
                 </div>
-                <!-- Related Item 2 -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-square bg-[#cfe8e6] rounded-lg mb-3 p-4 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-[#162e26]">sanitizer</span>
-                    </div>
-                    <h3 class="font-bold text-sm">Premium Care Kit</h3>
-                </div>
-                <!-- Related Item 3 -->
-                <div class="group cursor-pointer">
-                    <div class="aspect-square bg-[#f5f5f5] rounded-lg mb-3 p-4 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-text-muted">link</span>
-                    </div>
-                    <h3 class="font-bold text-sm">Gold Link Chain</h3>
-                </div>
-                <!-- Related Item 4 -->
-                <div class="group cursor-pointer">
-                    <div
-                        class="aspect-square bg-white dark:bg-[#1a1a1a] rounded-lg mb-3 p-4 flex items-center justify-center">
-                        <span class="material-symbols-outlined text-4xl text-text-muted">local_florist</span>
-                    </div>
-                    <h3 class="font-bold text-sm">The Scholar</h3>
-                </div>
-            </div>
-        </div>
 
-    </main>
+            </main>
 
-    <!-- Footer -->
-    <footer class="bg-background-light dark:bg-background-dark border-t border-[#f0f4f3] dark:border-gray-800 mt-auto">
-        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
-            <div class="flex flex-col md:flex-row justify-between items-center text-xs text-text-muted">
-                <p>&copy; 2026 Dey Optical. All rights reserved.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-primary">Privacy Policy</a>
-                    <a href="#" class="hover:text-primary">Terms of Service</a>
+            <!-- Footer -->
+            <footer
+                class="bg-background-light dark:bg-background-dark border-t border-[#f0f4f3] dark:border-gray-800 mt-auto">
+                <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+                    <div class="flex flex-col md:flex-row justify-between items-center text-xs text-text-muted">
+                        <p>&copy; 2026 Dey Optical. All rights reserved.</p>
+                        <div class="flex gap-4 mt-4 md:mt-0">
+                            <a href="#" class="hover:text-primary">Privacy Policy</a>
+                            <a href="#" class="hover:text-primary">Terms of Service</a>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </footer>
+            </footer>
 
 </body>
 
