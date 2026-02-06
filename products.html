@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dey Optical | Premium Collection</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Manrope:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Theme Config (Matched to index.html) -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#eebd2b", // Gold from index.html
+                        "background-light": "#f8f7f6",
+                        "background-dark": "#221d10",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#162e26",
+                        "text-main": "#181611",
+                        "text-muted": "#897f61",
+                    },
+                    fontFamily: {
+                        "serif": ["Noto Serif", "serif"],
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24
+        }
+
+        /* Custom scrollbar for sidebar */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #d1d5db;
+            border-radius: 20px;
+        }
+
+        .dark .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #374151;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-text-main dark:text-gray-100 min-h-screen flex flex-col transition-colors duration-200">
+
+    <!-- Top Navigation (Matched to index.html) -->
+    <nav
+        class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-[#e5e0d6] dark:border-[#3a3422] transition-colors duration-200">
+        <div class="max-w-[1440px] mx-auto px-6 lg:px-10">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="window.location.href='index.html'">
+                    <img src="logo.png" alt="Dey Optical Logo" class="h-16 w-auto rounded-full">
+                    <span
+                        class="font-serif text-xl md:text-2xl font-bold tracking-tight text-text-main dark:text-white">Dey
+                        Opticals</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex flex-1 justify-center gap-9">
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#shop">Collections</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="#">Brands</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#virtual-try-on">Try-On</a>
+                    <a class="text-sm font-medium text-text-main dark:text-gray-200 hover:text-primary transition-colors"
+                        href="index.html#about">About</a>
+                </div>
+
+                <!-- Icons -->
+                <div class="flex items-center gap-3">
+                    <button
+                        class="flex items-center justify-center h-10 w-10 rounded-lg hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] text-text-main dark:text-white transition-colors">
+                        <span class="material-symbols-outlined">search</span>
+                    </button>
+                    <div class="relative">
+                        <button
+                            class="flex items-center justify-center h-10 w-10 rounded-lg hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] text-text-main dark:text-white transition-colors">
+                            <span class="material-symbols-outlined">shopping_bag</span>
+                        </button>
+                    </div>
+                    <!-- Mobile Menu Button -->
+                    <button
+                        class="lg:hidden flex items-center justify-center rounded-lg h-10 w-10 bg-transparent hover:bg-[#e5e0d6] dark:hover:bg-[#3a3422] text-[#181611] dark:text-white transition-colors">
+                        <span class="material-symbols-outlined">menu</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Layout -->
+    <main class="flex-grow w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-10 py-8">
+
+        <!-- Breadcrumbs & Header -->
+        <div class="mb-8">
+            <nav class="flex items-center gap-2 text-sm font-medium text-text-muted mb-4">
+                <a href="index.html" class="hover:text-primary transition-colors">Home</a>
+                <span class="material-symbols-outlined text-[16px]">chevron_right</span>
+                <span class="text-text-main dark:text-white">Optical Frames</span>
+            </nav>
+
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="max-w-2xl">
+                    <h2
+                        class="text-3xl md:text-4xl font-serif font-bold tracking-tight text-text-main dark:text-white mb-2">
+                        Premium Optical Collection</h2>
+                    <p class="text-text-muted text-base md:text-lg">Discover our curated selection of designer frames
+                        crafted for elegance and durability.</p>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="flex items-center gap-3">
+                    <label for="sort"
+                        class="text-sm font-medium text-text-main dark:text-gray-300 whitespace-nowrap">Sort By:</label>
+                    <div class="relative">
+                        <select id="sort"
+                            class="appearance-none bg-white dark:bg-[#2a2415] border border-[#e5e0d6] dark:border-[#3a3422] text-text-main dark:text-white text-sm font-medium rounded-lg pl-4 pr-10 py-2.5 focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary cursor-pointer shadow-sm min-w-[180px]">
+                            <option>Featured</option>
+                            <option>Newest Arrivals</option>
+                            <option>Price: Low to High</option>
+                            <option>Price: High to Low</option>
+                        </select>
+                        <span
+                            class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-text-main dark:text-white">
+                            <span class="material-symbols-outlined text-[20px]">expand_more</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-8 relative">
+            <!-- Sidebar Filters -->
+            <aside class="w-full lg:w-64 flex-shrink-0">
+                <div class="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto custom-scrollbar pr-2 space-y-4">
+                    <div class="flex items-center justify-between lg:hidden mb-4">
+                        <span class="text-lg font-bold">Filters</span>
+                        <button class="text-sm text-primary font-medium">Clear All</button>
+                    </div>
+
+                    <!-- Frame Shape -->
+                    <details open
+                        class="group bg-white dark:bg-[#2a2415] border border-[#e5e0d6] dark:border-[#3a3422] rounded-lg overflow-hidden">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
+                            <span class="text-sm font-bold text-text-main dark:text-white">Frame Shape</span>
+                            <span
+                                class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-4 pb-4 pt-0 space-y-3 border-t border-transparent group-open:border-[#e5e0d6] dark:group-open:border-[#3a3422]">
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Square</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox" checked
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Round</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Aviator</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Cat-Eye</span>
+                            </label>
+                        </div>
+                    </details>
+
+                    <!-- Material -->
+                    <details
+                        class="group bg-white dark:bg-[#2a2415] border border-[#e5e0d6] dark:border-[#3a3422] rounded-lg overflow-hidden">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
+                            <span class="text-sm font-bold text-text-main dark:text-white">Material</span>
+                            <span
+                                class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-4 pb-4 pt-0 space-y-3 border-t border-transparent group-open:border-[#e5e0d6] dark:group-open:border-[#3a3422]">
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Acetate</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Titanium</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Metal</span>
+                            </label>
+                        </div>
+                    </details>
+
+                    <!-- Brand -->
+                    <details open
+                        class="group bg-white dark:bg-[#2a2415] border border-[#e5e0d6] dark:border-[#3a3422] rounded-lg overflow-hidden">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
+                            <span class="text-sm font-bold text-text-main dark:text-white">Brand</span>
+                            <span
+                                class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-4 pb-4 pt-0 space-y-3 border-t border-transparent group-open:border-[#e5e0d6] dark:group-open:border-[#3a3422]">
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Oliver
+                                    Peoples</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox" checked
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Tom
+                                    Ford</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Ray-Ban</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group/label">
+                                <input type="checkbox"
+                                    class="w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary bg-white dark:bg-gray-800 dark:border-gray-600">
+                                <span
+                                    class="text-sm text-text-muted group-hover/label:text-primary transition-colors">Gucci</span>
+                            </label>
+                        </div>
+                    </details>
+
+                    <!-- Color -->
+                    <details open
+                        class="group bg-white dark:bg-[#2a2415] border border-[#e5e0d6] dark:border-[#3a3422] rounded-lg overflow-hidden">
+                        <summary class="flex items-center justify-between p-4 cursor-pointer select-none">
+                            <span class="text-sm font-bold text-text-main dark:text-white">Color</span>
+                            <span
+                                class="material-symbols-outlined transition-transform duration-200 group-open:rotate-180">expand_more</span>
+                        </summary>
+                        <div
+                            class="px-4 pb-4 pt-0 border-t border-transparent group-open:border-[#e5e0d6] dark:group-open:border-[#3a3422]">
+                            <div class="flex flex-wrap gap-2 pt-3">
+                                <button aria-label="Black"
+                                    class="w-8 h-8 rounded-full bg-black border-2 border-transparent hover:border-primary ring-2 ring-transparent ring-offset-2 ring-offset-white dark:ring-offset-gray-900 transition-all"></button>
+                                <button aria-label="Brown"
+                                    class="w-8 h-8 rounded-full bg-[#8B4513] border-2 border-transparent hover:border-primary ring-2 ring-transparent ring-offset-2 ring-offset-white dark:ring-offset-gray-900 transition-all"></button>
+                                <button aria-label="Tortoise"
+                                    class="w-8 h-8 rounded-full bg-[#A0522D] border-2 border-primary ring-2 ring-transparent ring-offset-2 ring-offset-white dark:ring-offset-gray-900 transition-all"></button>
+                                <button aria-label="Silver"
+                                    class="w-8 h-8 rounded-full bg-[#C0C0C0] border-2 border-transparent hover:border-primary ring-2 ring-transparent ring-offset-2 ring-offset-white dark:ring-offset-gray-900 transition-all"></button>
+                                <button aria-label="Gold"
+                                    class="w-8 h-8 rounded-full bg-[#FFD700] border-2 border-transparent hover:border-primary ring-2 ring-transparent ring-offset-2 ring-offset-white dark:ring-offset-gray-900 transition-all"></button>
+                            </div>
+                        </div>
+                    </details>
+                </div>
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="flex-1">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-10">
+
+                    <!-- Product Card 1 -->
+                    <div class="group relative flex flex-col">
+                        <a href="product-details.html" class="block">
+                            <div
+                                class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                                <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBeGu0EvAiYAQoJHaVFIvlZzxySvbX6nMq4e09RYuS0NY8uj5mO__oC55l7sIQiywIMjHKmGYjpuA47aO-mmA_J3JkBwc8Pa-MikyvFzv7CZw3bSozglvhgB1pYwYmkYgMR4MITrE-W5DZVMBUOc9ZLQ9tcuVuEZVJT4STd-egryzPY82kRs1YSTUqMaV-B4e8fx5yhyGRz2AbY3y8C2cfNBkmhrgWegwYBETF4i36oIY603i5Z5ZuNWKTpEjZBstPYENtmy32PDyQ"
+                                    alt="Tom Ford Glasses"
+                                    class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                                <!-- Quick View Overlay -->
+                                <div
+                                    class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                    <button
+                                        class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                        <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                    </button>
+                                </div>
+
+                                <!-- Wishlist Icon -->
+                                <button
+                                    class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                    <span
+                                        class="material-symbols-outlined text-[20px] font-variation-settings-fill-0 hover:font-variation-settings-fill-1">favorite</span>
+                                </button>
+                            </div>
+                            <div class="mt-4 flex flex-col gap-1">
+                                <div class="flex justify-between items-start">
+                                    <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">TOM FORD
+                                    </h3>
+                                    <!-- Price Removed -->
+                                </div>
+                                <p class="text-sm text-text-muted">FT5634-B Blue Light Block</p>
+                                <div class="flex gap-1 mt-1">
+                                    <span
+                                        class="block w-3 h-3 rounded-full bg-[#A0522D] border border-gray-200 dark:border-gray-600"></span>
+                                    <span
+                                        class="block w-3 h-3 rounded-full bg-black border border-gray-200 dark:border-gray-600"></span>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <span
+                                class="absolute top-3 left-3 px-2 py-1 bg-primary text-[#181611] text-xs font-bold rounded uppercase tracking-wider z-10">New</span>
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-vDzp-9XPXn3WW-VgiQ9mXAnkVUcd_7lkVxFmxakBJ0kmv5dzW-ZGIY15m-2a3J4EYHcHD9x8OeuRML-CWRkmA6eoPXfj_QrvXSh25yTHifhS9fzfMSZC_YZ3TRWKqsgav6fVMTKwsBCIz9MqXfYCLbTlgJKestkCv0wh9lMwnMxoOdFthoyYt-CNJjbEADJqM7ZAo1hAIh1CFpLu79hfu7YzO69Gm6AysmWjJ1LIFd9L4kRpUFFaZbccCdOzI7pJh1eLMe0dj7Y"
+                                alt="Ray-Ban Glasses"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">RAY-BAN</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Aviator Optics</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#C0C0C0] border border-gray-200 dark:border-gray-600"></span>
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#FFD700] border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkch0Ca4DRR7MGtKkU-p-ruxAsX6EJ4uK3YNnwYWfmLKI-G4lNzqKhC--L1ejJTFHQjX_SVXZz8jtw2CoxYQXwPWierKHI-TTPHU3ihQPidi1IP3FHoMlPaP7ME5E3MbOP4Nh3GwjFIBokui7PyXQ6PlxOUhyKj6amBNMf5oJ6lXaNx7v2gwXjBNmQSsoI3pjrK40lmVyLsOkKlKvU4OqwUR6hDA3Xc2dPv0870rbCTTqEU42Dp2mOTXlemPGuqYqRBR9vYcxyHfI"
+                                alt="Oliver Peoples Glasses"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">OLIVER
+                                    PEOPLES</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Gregory Peck</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-black border border-gray-200 dark:border-gray-600"></span>
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#A0522D] border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4xHO7OUdCEE9u0yiAN4ILeiTdCzBF_0IfTMO0nb01P0s4uQ9wxVYkPicLc5h6vVp6Ean-jEsl4VH3JKipO4BwQjtNvETsxveYgEE_0s1t8oahjRVbMuZaZ6sFf_Ii5bScw5a9Nw4gcjfKZV0n1_y2RZmbP1YgNIQG8E2vrtv_Ezjc4ARJcncrqnB5CkI6Jb9I-g0Q3KKh4Otmb-G1PiUu3erCSfbbCGcrzTwgWLxGmw-dV2sbS8MODvWrt37wD6fqK09qkt-c-jw"
+                                alt="Gucci Glasses"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">GUCCI</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Round Metal Optical</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#FFD700] border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgFIaiHeFCZ2s6WqjyaJ8J4NlTU0vdPO2DYDd4sJH2Xs4LWS3SQqXofS19TkLl4B8wtnwhK7bf6iRe1mtodaiHi6ra4k-eRN3s-y1qTnoJKF8E97ldYdDTVY8UTsmM9N8087-fLPgAIIPRFLnbIAwgPyUIjU3q7W70HuC14ZXeY4Pn94cz0-7LdXWkJl8tZc3oOSZCc-3MmxZmMmhu3enYbRSAalrXGUJea8BlMuIemFK6iS1AZ8y7NHymUIXvEfXy8fyN9QgwQio"
+                                alt="Persol Glasses"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">PERSOL</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">PO3007V</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#f0f0f0] border border-gray-200 dark:border-gray-600"></span>
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-black border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <span
+                                class="absolute top-3 left-3 px-2 py-1 bg-black text-white text-xs font-bold rounded uppercase tracking-wider z-10">Best
+                                Seller</span>
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDEAdFgtQeCTyB321NRGXZ3PlZ9OGvCFK9fa-FMwftSG6mRu0FICY0oUOHWF6IHPbubjShR1gGwc8awXVRzlDNR_1qarv4RdXSJ3SZgN4MUT-c1dTtS445wKssR_Lnm9TSUqJIwFjDiyq1en5UNZE5inCWX_tLFqKT8gEjd2Ea_mHXHpkIqWnqHWbMlrovI2VViKb0vWp-eDmPQxamJ-gzCwQFat6-kUvToEZJ_bbksu4boI5yJE1u_gpTUwBM1GBeURM3L7ZJk70"
+                                alt="Ray-Ban Wayfarer"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">RAY-BAN</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Wayfarer Ease Optics</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-black border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 7 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHxZ1RJd5ch-kE1-4rZ2YhiDv3ptJKCxvUtaGvZGCMbrXVkcFcHumBrrzlyCIo13gS6r5ZJM3XWZ85OvIINoYgMeNnnnDSnsHrltERjtylzx4ZBtCDC3nuIIrSyhtbj3H5MzCvuYviv1A7xGDkIMx8IjuRPojgET4Mu_bLB40ZZEcTmjC12ifBWToC9MuuPJY1TmbBwlztgY8nAShK-agXecXsCdfOS_JaCAvYh5bD3XsHYe1_2ViF_rnEdfCuaHPAwsALZXIEeG0"
+                                alt="Tom Ford Clubmaster"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">TOM FORD</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Clubmaster Classic</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#8B4513] border border-gray-200 dark:border-gray-600"></span>
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-black border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 8 -->
+                    <div class="group relative flex flex-col">
+                        <div
+                            class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-white dark:bg-surface-dark relative shadow-sm border border-transparent hover:border-gray-200 dark:hover:border-gray-700 transition-all duration-300">
+                            <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuALkwifEJerFsvoI9Xj_vermq72QbrpB9G7H3w1xpEjVOEetp7UK6VUTSMT4EOVnVavgfsMhmtAPcxANd_qFQ8wRsH4NsTTtNiZ6PJX9Zp5uotWal8fySbGvykWfTx5zLTLGsH8ubOqNxVisylnNXBa3zxaQWhg26Ledurt7xTYtzPd0Dbbma3dH1GfEadb8KHh-NC-yCKJv-BDzMgL3uhk0KsQ9gItF_cA04Sa_c8NnwD8YsqeqVdgaH2TUQhiA68_aNNedOw7VQ8"
+                                alt="Garrett Leight"
+                                class="h-full w-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out">
+
+                            <div
+                                class="absolute inset-x-0 bottom-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out bg-gradient-to-t from-black/50 to-transparent flex justify-center pb-6">
+                                <button
+                                    class="bg-white text-text-main font-bold py-2 px-6 rounded-full shadow-lg hover:bg-primary hover:text-[#181611] transition-colors flex items-center gap-2 text-sm">
+                                    <span class="material-symbols-outlined text-[18px]">visibility</span> Quick View
+                                </button>
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 p-2 rounded-full bg-white/80 dark:bg-black/50 hover:bg-white dark:hover:bg-black text-gray-500 hover:text-red-500 transition-colors opacity-0 group-hover:opacity-100">
+                                <span class="material-symbols-outlined text-[20px]">favorite</span>
+                            </button>
+                        </div>
+                        <div class="mt-4 flex flex-col gap-1">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-sm font-bold text-text-main dark:text-white tracking-wide">GARRETT
+                                    LEIGHT</h3>
+                                <!-- Price Removed -->
+                            </div>
+                            <p class="text-sm text-text-muted">Wilson M</p>
+                            <div class="flex gap-1 mt-1">
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#FFD700] border border-gray-200 dark:border-gray-600"></span>
+                                <span
+                                    class="block w-3 h-3 rounded-full bg-[#C0C0C0] border border-gray-200 dark:border-gray-600"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Load More -->
+                <div class="mt-16 flex justify-center">
+                    <button
+                        class="px-8 py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-text-main dark:text-white font-bold rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors focus:ring-2 focus:ring-primary focus:outline-none">
+                        Load More Products
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Simple Footer (Matched to index.html with logo) -->
+    <footer class="bg-background-light dark:bg-background-dark border-t border-[#f0f4f3] dark:border-gray-800 mt-auto">
+        <div class="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-center gap-2">
+                        <img src="logo.png" alt="Dey Optical Logo" class="h-12 w-auto rounded-full">
+                        <span class="font-serif text-lg font-bold text-text-main dark:text-white">Dey Opticals</span>
+                    </div>
+                    <p class="text-sm text-text-muted leading-relaxed">Defining vision with elegance since 1995. We
+                        curate the finest eyewear for the modern individual.</p>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-text-main dark:text-white mb-4">Shop</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a href="#" class="hover:text-primary transition-colors">Men's Optical</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Women's Optical</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Sunglasses</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-text-main dark:text-white mb-4">Support</h4>
+                    <ul class="space-y-2 text-sm text-text-muted">
+                        <li><a href="#" class="hover:text-primary transition-colors">Shipping & Returns</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Store Locator</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Contact Us</a></li>
+                        <li><a href="#" class="hover:text-primary transition-colors">Book an Eye Exam</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-sm font-bold text-text-main dark:text-white mb-4">Stay Connected</h4>
+                    <form class="flex flex-col gap-2">
+                        <input type="email" placeholder="Enter your email"
+                            class="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded px-4 py-2 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary" />
+                        <button
+                            class="w-full bg-text-main dark:bg-white text-white dark:text-black font-bold text-sm py-2 rounded hover:bg-primary dark:hover:bg-primary dark:hover:text-white transition-colors">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div
+                class="mt-12 pt-8 border-t border-gray-100 dark:border-gray-800 flex flex-col md:flex-row justify-between items-center text-xs text-text-muted">
+                <p>&copy; 2026 Dey Optical. All rights reserved.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-primary">Privacy Policy</a>
+                    <a href="#" class="hover:text-primary">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
