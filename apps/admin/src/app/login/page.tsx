@@ -33,11 +33,11 @@ export default function AdminLoginPage() {
       // Check role immediately to avoid flickering
       const meRes = await fetch('/api/auth/me');
       const meData = await meRes.json();
-      if (meData.authenticated && meData.user.role === 'admin') {
-        setUser(meData.user);
-        router.push('/admin/dashboard');
-        router.refresh();
-      } else {
+        if (meData.authenticated && meData.user.role === 'admin') {
+          setUser(meData.user);
+          router.push('/dashboard');
+          router.refresh();
+        } else {
         // Log them out if they are not admin
         await fetch('/api/auth/logout', { method: 'POST' });
         throw new Error('Access denied. Administrator privileges required.');
