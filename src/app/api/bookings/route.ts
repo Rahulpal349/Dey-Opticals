@@ -15,7 +15,7 @@ export async function POST(request: Request) {
     const result = bookingSchema.safeParse(data);
 
     if (!result.success) {
-      return NextResponse.json({ error: result.error.errors[0].message }, { status: 400 });
+      return NextResponse.json({ error: result.error.issues[0].message }, { status: 400 });
     }
 
     await connectToDatabase();
