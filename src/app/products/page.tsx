@@ -148,29 +148,28 @@ function ProductsCatalog() {
 
   return (
     <div className="container mx-auto px-4 md:px-6 py-8 min-h-screen">
-        <div className="flex-1 flex items-center justify-between">
-          <h1 className="text-3xl font-bold font-heading text-primary">Our Collection</h1>
-          <div className="flex items-center gap-4">
-            <span className="text-sm text-gray-500 hidden md:block">
-              {total} Results
-            </span>
-            <select 
-              className="border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
-              value={sort}
-              onChange={(e) => setSort(e.target.value)}
-            >
-              <option value="newest">Newest Arrivals</option>
-              <option value="price_asc">Price: Low to High</option>
-              <option value="price_desc">Price: High to Low</option>
-            </select>
-            <Button 
-              variant="outline" 
-              className="md:hidden flex items-center gap-2"
-              onClick={() => setMobileFiltersOpen(true)}
-            >
-              <SlidersHorizontal className="w-4 h-4" /> Filters
-            </Button>
-          </div>
+      <div className="flex justify-between items-center mb-8">
+        <h1 className="text-3xl font-bold font-heading text-primary">Our Collection</h1>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-gray-500 hidden md:block">
+            {total} Results
+          </span>
+          <select 
+            className="border rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-primary"
+            value={sort}
+            onChange={(e) => setSort(e.target.value)}
+          >
+            <option value="newest">Newest Arrivals</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+          </select>
+          <Button 
+            variant="outline" 
+            className="md:hidden flex items-center gap-2"
+            onClick={() => setMobileFiltersOpen(true)}
+          >
+            <SlidersHorizontal className="w-4 h-4" /> Filters
+          </Button>
         </div>
       </div>
 
