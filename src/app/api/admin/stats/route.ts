@@ -4,6 +4,7 @@ import Order from '@/models/Order';
 import Product from '@/models/Product';
 import Booking from '@/models/Booking';
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     await connectToDatabase();

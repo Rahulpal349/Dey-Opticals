@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import mongoose from 'mongoose';
 import connectToDatabase from '@/lib/mongodb';
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     const startTime = Date.now();

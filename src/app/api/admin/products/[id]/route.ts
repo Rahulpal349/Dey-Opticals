@@ -2,6 +2,8 @@ import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Product from '@/models/Product';
 
+export const dynamic = 'force-dynamic';
+
 // Update a product
 export async function PUT(request: Request, { params }: { params: { id: string } }) {
   try {

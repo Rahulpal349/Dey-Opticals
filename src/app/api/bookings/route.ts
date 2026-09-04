@@ -4,6 +4,8 @@ import Booking from '@/models/Booking';
 import { bookingSchema } from '@/lib/validations';
 import { rateLimit } from '@/lib/rateLimit';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     const ip = request.headers.get('x-forwarded-for') || '127.0.0.1';

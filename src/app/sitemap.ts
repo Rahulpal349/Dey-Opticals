@@ -2,6 +2,7 @@ import { MetadataRoute } from 'next';
 import connectToDatabase from '@/lib/mongodb';
 import Product from '@/models/Product';
 
+export const dynamic = 'force-dynamic';
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://deyopticals.com';
   

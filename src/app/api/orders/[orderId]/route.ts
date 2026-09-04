@@ -4,6 +4,8 @@ import { jwtVerify } from 'jose';
 import connectToDatabase from '@/lib/mongodb';
 import Order from '@/models/Order';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request, { params }: { params: { orderId: string } }) {
   try {
     const token = cookies().get('token')?.value;

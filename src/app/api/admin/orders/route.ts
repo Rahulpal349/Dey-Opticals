@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import connectToDatabase from '@/lib/mongodb';
 import Order from '@/models/Order';
 
+export const dynamic = 'force-dynamic';
 export async function GET() {
   try {
     await connectToDatabase();

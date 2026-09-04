@@ -7,6 +7,8 @@ import User from '@/models/User';
 import { loginSchema } from '@/lib/validations';
 import { rateLimit } from '@/lib/rateLimit';
 
+export const dynamic = 'force-dynamic';
+
 export async function POST(request: Request) {
   try {
     // Basic IP-based rate limiting (fallback to common for serverless if IP not available)

@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, Suspense } from 'react';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { useStore } from '@/store/useStore';
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const redirect = searchParams?.get('redirect') || '/profile';
@@ -98,12 +98,20 @@ export default function LoginPage() {
         </form>
 
         <p className="mt-8 text-center text-sm text-gray-500">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-primary font-semibold hover:underline">
             Sign up
           </Link>
         </p>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto px-4 py-16 flex justify-center min-h-[70vh]">Loading...</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
