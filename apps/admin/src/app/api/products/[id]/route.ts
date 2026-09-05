@@ -9,17 +9,16 @@ export async function PUT(request: Request, { params }: { params: { id: string }
   try {
     const data = await request.json();
     await connectToDatabase();
-    
+    if (data.mrp && data.price && data.mrp > data.price) {
+      data.discountPercent = Math.round(((data.mrp - data.price) / data.mrp) * 100);
+    } else if (data.mrp && data.price) {
+      data.discountPercent = 0;
+    }
+
     const updatedProduct = await Product.findByIdAndUpdate(params.id, data, { new: true });
     
     if (!updatedProduct) {
       return NextResponse.json({ error: 'Product not found' }, { status: 404 });
-    }
-    
-    // Calculate new discount percent if price/mrp changed (schema pre-save handles this on save, but findByIdAndUpdate needs explicit handling or we can save it)
-    if (data.price || data.mrp) {
-      const doc = await Product.findById(params.id);
-      await doc.save(); // trigger pre-save hook
     }
 
     return NextResponse.json({ success: true, product: updatedProduct });

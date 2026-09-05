@@ -43,6 +43,12 @@ export async function POST(request: Request) {
       data.features = [];
     }
 
+    if (data.mrp && data.price && data.mrp > data.price) {
+      data.discountPercent = Math.round(((data.mrp - data.price) / data.mrp) * 100);
+    } else {
+      data.discountPercent = 0;
+    }
+
     await connectToDatabase();
     
     const newProduct = new Product(data);

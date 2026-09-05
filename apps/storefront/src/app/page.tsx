@@ -8,7 +8,23 @@ import {
   Star, CheckCircle
 } from "lucide-react";
 
-export default function Home() {
+import connectToDatabase from '@/lib/mongodb';
+import Product from '@/models/Product';
+
+async function getNewArrivals() {
+  try {
+    await connectToDatabase();
+    const products = await Product.find({}).sort({ createdAt: -1 }).limit(8).lean();
+    return JSON.parse(JSON.stringify(products));
+  } catch (error) {
+    console.error("Failed to fetch new arrivals:", error);
+    return [];
+  }
+}
+
+export default async function Home() {
+  const newArrivals = await getNewArrivals();
+
   const categories = [
     { name: "Eyeglasses", icon: Glasses, href: "/products?category=eyeglasses" },
     { name: "Sunglasses", icon: Sun, href: "/products?category=sunglasses" },
@@ -22,17 +38,6 @@ export default function Home() {
 
   const shapes = [
     "Rectangle", "Cat Eye", "Aviator", "Geometric", "Round", "Clubmaster", "Square"
-  ];
-
-  const newArrivals = [
-    { id: 1, brand: "Ray-Ban", name: "Classic Wayfarer", price: 5490, mrp: 6500, discountPercent: 15, image: "https://placehold.co/600x450?text=Wayfarer", badge: "NEW" },
-    { id: 2, brand: "Oakley", name: "Holbrook Sport", price: 6200, mrp: 7500, discountPercent: 17, image: "https://placehold.co/600x450?text=Holbrook", badge: "Few Left" },
-    { id: 3, brand: "Dey Premium", name: "Titanium Rimless", price: 3499, mrp: 5000, discountPercent: 30, image: "https://placehold.co/600x450?text=Rimless", badge: "Best Seller" },
-    { id: 4, brand: "Vogue", name: "Cat Eye Elegance", price: 4290, mrp: 4290, image: "https://placehold.co/600x450?text=Cat+Eye" },
-    { id: 5, brand: "Tom Ford", name: "Blue Block Pro", price: 12500, mrp: 15000, discountPercent: 16, image: "https://placehold.co/600x450?text=Blue+Block", badge: "NEW" },
-    { id: 6, brand: "Dey Basics", name: "Everyday Round", price: 999, mrp: 2000, discountPercent: 50, image: "https://placehold.co/600x450?text=Round", badge: "" },
-    { id: 7, brand: "Fastrack", name: "Urban Square", price: 1599, mrp: 1999, discountPercent: 20, image: "https://placehold.co/600x450?text=Square", badge: "" },
-    { id: 8, brand: "Carrera", name: "Champion Aviator", price: 8900, mrp: 10500, discountPercent: 15, image: "https://placehold.co/600x450?text=Aviator", badge: "Trending" },
   ];
 
   const services = [
@@ -125,8 +130,19 @@ export default function Home() {
           <Link href="/products" className="text-accent font-medium hover:underline">View All</Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {newArrivals.map((product) => (
-            <ProductCard key={product.id} {...product} />
+          {newArrivals.map((product: any) => (
+            <Link href={`/products/${product.slug}`} key={product._id} className="cursor-pointer group">
+              <ProductCard
+                id={product._id}
+                brand={product.brand}
+                name={product.name}
+                price={product.price}
+                mrp={product.mrp}
+                image={product.images?.[0] || ''}
+                discountPercent={product.discountPercent}
+                badge={product.isNewArrival ? "NEW" : (product.stockCount < 10 && product.stockCount > 0 ? "Few Left" : "")}
+              />
+            </Link>
           ))}
         </div>
       </section>

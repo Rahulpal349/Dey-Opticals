@@ -42,15 +42,7 @@ const ProductSchema: Schema = new Schema({
   createdAt: { type: Date, default: Date.now }
 });
 
-// Auto-calculate discount percentage before saving
-ProductSchema.pre('save', function (this: any, next: any) {
-  if (this.mrp && this.price && this.mrp > this.price) {
-    this.discountPercent = Math.round(((this.mrp - this.price) / this.mrp) * 100);
-  } else {
-    this.discountPercent = 0;
-  }
-  next();
-});
+// Removed problematic pre-save hook. Logic moved to API routes.
 
 ProductSchema.index({ slug: 1 }, { unique: true });
 ProductSchema.index({ category: 1 });
