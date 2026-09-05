@@ -39,6 +39,10 @@ export async function POST(request: Request) {
       data.slug = data.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)+/g, '');
     }
 
+    if (!data.features) {
+      data.features = [];
+    }
+
     await connectToDatabase();
     
     const newProduct = new Product(data);

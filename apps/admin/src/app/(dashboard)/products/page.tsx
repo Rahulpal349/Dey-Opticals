@@ -94,7 +94,7 @@ export default function AdminProductsPage() {
       price: Number(formData.price),
       mrp: Number(formData.mrp),
       stockCount: Number(formData.stockCount),
-      images: formData.images.filter(img => img.trim() !== '') // Remove empty image URLs
+      images: formData.images.filter(img => img && img.trim() !== '') // Safely remove empty/undefined image URLs
     };
 
     try {
@@ -212,7 +212,7 @@ export default function AdminProductsPage() {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50 overflow-y-auto">
+        <div className="fixed inset-0 bg-black/50 flex items-start justify-center p-4 pt-10 z-50 overflow-y-auto">
           <div className="bg-white rounded-2xl w-full max-w-2xl shadow-xl my-8">
             <div className="flex items-center justify-between p-6 border-b sticky top-0 bg-white rounded-t-2xl z-10">
               <h2 className="text-xl font-bold font-heading">{editingId ? 'Edit Product' : 'Add New Product'}</h2>
@@ -265,10 +265,26 @@ export default function AdminProductsPage() {
                   <input required type="number" min="0" value={formData.stockCount} onChange={(e) => setFormData({...formData, stockCount: e.target.value})} className="w-full border rounded-lg px-3 py-2" />
                 </div>
                 
-                <div className="space-y-2">
-                  <label className="text-sm font-medium">Image URL *</label>
-                  <input required type="url" placeholder="https://..." value={formData.images[0]} onChange={(e) => setFormData({...formData, images: [e.target.value]})} className="w-full border rounded-lg px-3 py-2" />
-                  <p className="text-xs text-gray-500">Provide a direct link to the image (e.g., Unsplash or CDN).</p>
+                <div className="space-y-2 md:col-span-2">
+                  <label className="text-sm font-medium">Product Images (At least 1 required, up to 5)</label>
+                  <div className="grid grid-cols-1 gap-2">
+                    {[0, 1, 2, 3, 4].map((index) => (
+                      <input 
+                        key={index}
+                        required={index === 0} 
+                        type="url" 
+                        placeholder={`Image URL ${index + 1}`} 
+                        value={formData.images[index] || ''} 
+                        onChange={(e) => {
+                          const newImages = [...formData.images];
+                          newImages[index] = e.target.value;
+                          setFormData({...formData, images: newImages});
+                        }} 
+                        className="w-full border rounded-lg px-3 py-2" 
+                      />
+                    ))}
+                  </div>
+                  <p className="text-xs text-gray-500">Provide direct links to the images (e.g., Unsplash or CDN). The first image will be the primary thumbnail.</p>
                 </div>
               </div>
 

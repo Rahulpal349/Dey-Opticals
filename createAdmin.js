@@ -1,8 +1,11 @@
 require('dotenv').config({ path: './apps/admin/.env.local' });
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const dns = require('dns');
 
-const URI = "mongodb://rahulxgaming69_db_user:Krishna%400203@ac-d4cruoi-shard-00-00.7cpyruj.mongodb.net:27017,ac-d4cruoi-shard-00-01.7cpyruj.mongodb.net:27017,ac-d4cruoi-shard-00-02.7cpyruj.mongodb.net:27017/dey_opticals?ssl=true&replicaSet=atlas-d4cruoi-shard-0&authSource=admin&retryWrites=true&w=majority";
+dns.setServers(['8.8.8.8', '8.8.4.4']);
+
+const URI = "mongodb+srv://rahulxgaming69_db_user:Krishna%400203@cluster0.7cpyruj.mongodb.net/dey_opticals?retryWrites=true&w=majority";
 
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
@@ -13,20 +16,48 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.models.User || mongoose.model('User', userSchema);
 
+const readline = require('readline');
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout
+});
+
+const question = (query) => new Promise((resolve) => rl.question(query, resolve));
+
 async function createAdmin() {
   try {
     await mongoose.connect(URI, { family: 4 });
     console.log('Connected to DB');
 
-    const email = 'admin@deyopticals.com';
-    const password = 'password123';
+    const email = await question('Enter admin email: ');
     
+    // Quick workaround to hide password input natively in node
+    const password = await new Promise((resolve) => {
+      process.stdout.write('Enter admin password: ');
+      rl.stdoutMuted = true;
+      rl.question('', (answer) => {
+        rl.stdoutMuted = false;
+        console.log('');
+        resolve(answer);
+      });
+      rl._writeToOutput = function _writeToOutput(stringToWrite) {
+        if (rl.stdoutMuted)
+          rl.output.write("*");
+        else
+          rl.output.write(stringToWrite);
+      };
+    });
+
+    if (!email || !password) {
+      console.error('Email and password are required!');
+      process.exit(1);
+    }
+
     // Check if admin exists
     const existingAdmin = await User.findOne({ email });
     if (existingAdmin) {
-      console.log('Admin already exists! You can log in with:');
-      console.log('Email:', email);
-      console.log('Password: password123');
+      console.log('Admin already exists! You can log in with your credentials.');
       process.exit(0);
     }
 
@@ -41,9 +72,8 @@ async function createAdmin() {
     });
 
     await admin.save();
-    console.log('Admin created successfully! Credentials:');
-    console.log('Email: admin@deyopticals.com');
-    console.log('Password: password123');
+    console.log('\nAdmin created successfully!');
+    console.log(`Email: ${email}`);
     process.exit(0);
   } catch (err) {
     console.error(err);

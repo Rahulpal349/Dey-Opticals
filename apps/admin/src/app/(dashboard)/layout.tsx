@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Package, ShoppingCart, Calendar, LayoutDashboard, LogOut } from 'lucide-react';
-import './globals.css';
+import '../globals.css';
 
 export const metadata = {
   title: 'Dey Opticals Admin',
